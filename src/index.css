@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --surface: 217 33% 17%;
+    --surface-elevated: 217 33% 20%;
+    --card: 217 33% 17%;
+    --card-foreground: 210 40% 98%;
+    --popover: 217 33% 17%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 213 94% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 213 94% 60%;
+    --primary-pressed: 213 94% 50%;
+    --secondary: 215 28% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --secondary-hover: 215 28% 20%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 16% 65%;
+    --accent: 213 94% 55%;
+    --accent-foreground: 0 0% 100%;
+    --accent-hover: 213 94% 60%;
+    --accent-pressed: 213 94% 50%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --error: 0 84% 60%;
+    --error-foreground: 0 0% 100%;
+    --success: 160 84% 39%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --border: 215 28% 25%;
+    --outline: 215 20% 35%;
+    --input: 215 28% 25%;
+    --ring: 213 94% 55%;
+    --sidebar: 217 33% 17%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-border: 215 28% 25%;
+    --sidebar-accent: 215 28% 20%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-ring: 213 94% 55%;
+    --text-high-emphasis: 210 40% 98%;
+    --text-medium-emphasis: 215 16% 65%;
+    --text-low-emphasis: 215 16% 47%;
+    --chart-1: 160 84% 39%;
+    --chart-2: 0 84% 60%;
+    --chart-3: 38 92% 50%;
+    --chart-4: 213 94% 55%;
+    --chart-5: 280 65% 60%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer utilities {
+  /* Page Load Animation */
+  @keyframes fadeSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-slide-up {
+    animation: fadeSlideUp 0.6s var(--ease-out-expo);
+  }
+  
+  /* Staggered animations for lists */
+  .animate-stagger > * {
+    opacity: 0;
+    animation: fadeSlideUp 0.6s var(--ease-out-expo) forwards;
+  }
+  
+  .animate-stagger > *:nth-child(1) { animation-delay: 0.1s; }
+  .animate-stagger > *:nth-child(2) { animation-delay: 0.2s; }
+  .animate-stagger > *:nth-child(3) { animation-delay: 0.3s; }
+  .animate-stagger > *:nth-child(4) { animation-delay: 0.4s; }
+  .animate-stagger > *:nth-child(5) { animation-delay: 0.5s; }
+}
